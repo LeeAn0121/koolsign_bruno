@@ -1,0 +1,26 @@
+meta {
+  name: 사용자 삭제
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{base_external_URL}}/restapi/member_save
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mode": "d",
+      "mem_id": "test_user_03"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

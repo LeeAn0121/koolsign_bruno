@@ -1,0 +1,26 @@
+meta {
+  name: 화면구성 상세 조회
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{base_external_URL}}/restapi/schedule_list_detailed
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "sid": "s_koolsign_admin_1769999052"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,26 @@
+meta {
+  name: 단말 배포 현황
+  type: http
+  seq: 23
+}
+
+post {
+  url: {{base_external_URL}}/restapi/stb_download_progress
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "stb_ids": ["KSU20100384","KYOBO-A-2","KOOLSIGN12"]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

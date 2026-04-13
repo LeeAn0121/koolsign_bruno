@@ -1,0 +1,29 @@
+meta {
+  name: 주간 스케줄 편성
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_external_URL}}/restapi/save_broadcast_week
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "broadcast_title": "신규_일일편성_테스트",
+      "broadcast_group": "7",
+      "day_bid_list": "b_koolsign_admin_1768884916, b_koolsign_admin_1768884916, b_koolsign_admin_1768884916, b_koolsign_admin_1768884916",
+      "yoil_list": "1, 3, 5, 7"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

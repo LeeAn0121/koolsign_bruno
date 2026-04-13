@@ -1,0 +1,28 @@
+meta {
+  name: 활성 스케줄 요약
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_external_URL}}/restapi/get_active_schedules
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "limit": 1
+  }
+  
+  // schedule_id, schedule_title 입력시 필터링
+}
+
+settings {
+  encodeUrl: true
+}

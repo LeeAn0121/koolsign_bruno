@@ -1,0 +1,26 @@
+meta {
+  name: 화면구성 템플릿 삭제
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://172.16.140.14/restapi/template_delete
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "admin",
+      "uid": "85"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

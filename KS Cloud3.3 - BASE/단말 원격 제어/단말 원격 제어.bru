@@ -1,0 +1,23 @@
+meta {
+  name: 단말 원격 제어
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_external_URL}}/restapi/remote_stb_command
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "stb_sn" : "KSU24200135",
+      "mem_id" : "admin",
+      "command" : "tv_volume"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

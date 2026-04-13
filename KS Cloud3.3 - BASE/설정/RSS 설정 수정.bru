@@ -1,0 +1,27 @@
+meta {
+  name: RSS 설정 수정
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{base_external_URL}}/restapi/manage_rss
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "mode": "M",
+      "uid": 1
+  }
+}
+
+settings {
+  encodeUrl: true
+}

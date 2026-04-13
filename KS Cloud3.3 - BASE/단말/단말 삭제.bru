@@ -1,0 +1,29 @@
+meta {
+  name: 단말 삭제
+  type: http
+  seq: 20
+}
+
+post {
+  url: {{base_external_URL}}/restapi/stb_save
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mode": "d",
+      "mem_id": "admin",
+      "stb_id": "KOOLSIGN03",
+      "stb_sn": "KOOLSIGN03",
+      "stb_location": "KOOLSIGN03"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

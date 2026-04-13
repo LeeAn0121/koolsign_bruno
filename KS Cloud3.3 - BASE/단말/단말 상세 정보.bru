@@ -1,0 +1,26 @@
+meta {
+  name: 단말 상세 정보
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{base_external_URL}}/restapi/stb_list_detail
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "stb_sn" : "KSU24200249"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

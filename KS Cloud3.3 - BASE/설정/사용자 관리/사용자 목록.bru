@@ -1,0 +1,27 @@
+meta {
+  name: 사용자 목록
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{base_external_URL}}/restapi/member_list
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "limit": 1,
+      "page": 1
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,33 @@
+meta {
+  name: 방송 배포_v2
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_external_URL}}/restapi/send_stb_save_v2
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "uid": "634",
+      "send_title": "test",
+      "stb_sn": "KSU20100384",
+      "all_broadcast_check": "off",
+      "ntype": "repeat"
+      //"reservation_check": "on",
+      //"reservation_start_date": "2026-02-13",
+      //"reservation_start_time": "10:55:00"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

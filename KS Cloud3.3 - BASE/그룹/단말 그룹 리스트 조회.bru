@@ -1,0 +1,27 @@
+meta {
+  name: 단말 그룹 리스트 조회
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_external_URL}}/restapi/stb_group_list
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "upper_id": "000000000000006",
+      "depth" : ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}

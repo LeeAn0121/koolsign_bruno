@@ -1,0 +1,39 @@
+meta {
+  name: 화면구성 생성_v2
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_external_URL}}/restapi/save_schedule_v2
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "template_id": "2",
+      "schedule_title": "SHARE_TEST",
+      "mem_group": "7",
+      "mode": "w",
+      "share_display": "Y",
+      "frames": [
+          {
+              "frame_no": 1, 
+              "content_id": 172,
+              "content_type": "movie", 
+              "content_order": 1,
+              "schedule_time": 1227
+          }
+      ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

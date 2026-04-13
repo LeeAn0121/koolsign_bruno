@@ -1,0 +1,27 @@
+meta {
+  name: 그룹 삭제
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{base_external_URL}}/restapi/group_delete
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "kyobo",
+      "code_num": "000000000000006",
+      "group": "member"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

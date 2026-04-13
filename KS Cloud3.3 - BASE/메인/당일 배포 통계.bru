@@ -1,0 +1,25 @@
+meta {
+  name: 당일 배포 통계
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_external_URL}}/restapi/get_today_download_stats
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

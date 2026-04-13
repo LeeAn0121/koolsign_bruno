@@ -1,0 +1,26 @@
+meta {
+  name: 사용자 그룹 리스트 조회
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_external_URL}}/restapi/member_group_list
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "kyobo",
+      "depth" : ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}

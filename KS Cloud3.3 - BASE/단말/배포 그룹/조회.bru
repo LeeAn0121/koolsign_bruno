@@ -1,0 +1,25 @@
+meta {
+  name: 조회
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_external_URL}}/restapi/stb_distribution_group_list
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

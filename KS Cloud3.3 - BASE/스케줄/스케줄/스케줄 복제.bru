@@ -1,0 +1,27 @@
+meta {
+  name: 스케줄 복제
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{base_external_URL}}/restapi/copy_broadcast_action
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "uid": "219",
+      "ntype": "repeat"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,27 @@
+meta {
+  name: 공휴일 목록 조회
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{base_external_URL}}/restapi/get_holiday_list
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "year": "2026",
+      "month": "01"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

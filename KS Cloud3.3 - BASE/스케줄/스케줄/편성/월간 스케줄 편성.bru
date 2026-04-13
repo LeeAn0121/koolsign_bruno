@@ -1,0 +1,53 @@
+meta {
+  name: 월간 스케줄 편성
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{base_external_URL}}/restapi/save_broadcast_month
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "broadcast_title": "2026년 1월 전체 편성",
+      "broadcast_group": "7",
+      "schedule_list": [
+          {
+              "uid": "371",
+              "bid": "b_koolsign_admin_1769061847",
+              "s_date": "2026-1-22",
+              "e_date": "2026-1-22"
+          },
+          {
+              "uid": "371",
+              "bid": "b_koolsign_admin_1769061847",
+              "s_date": "2026-1-23",
+              "e_date": "2026-1-23"
+          },
+          {
+              "uid": "371",
+              "bid": "b_koolsign_admin_1769061847",
+              "s_date": "2026-1-24",
+              "e_date": "2026-1-24"
+          },
+          {
+              "uid": "371",
+              "bid": "b_koolsign_admin_1769061847",
+              "s_date": "2026-1-25",
+              "e_date": "2026-1-25"
+          }
+      ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,29 @@
+meta {
+  name: 그룹 수정
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{base_external_URL}}/restapi/group_modify
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "kyobo",
+      "code_num": "000000000000006",
+      "group": "stb",
+      "code_name": "교보채널그룹001",
+      "depth": 1
+  }
+}
+
+settings {
+  encodeUrl: true
+}

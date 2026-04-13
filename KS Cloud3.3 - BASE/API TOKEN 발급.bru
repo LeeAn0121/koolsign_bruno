@@ -1,0 +1,26 @@
+meta {
+  name: API TOKEN 발급
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{base_external_URL}}/auth_api/issue_token
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "mem_id": "kyobo",
+      "password": "12345"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

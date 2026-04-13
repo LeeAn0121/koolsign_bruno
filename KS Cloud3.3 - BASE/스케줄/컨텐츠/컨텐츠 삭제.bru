@@ -1,0 +1,25 @@
+meta {
+  name: 컨텐츠 삭제
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_external_URL}}/restapi/contents_save
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:multipart-form {
+  mode: d
+  mem_id: koolsign_admin
+  uid: 102
+}
+
+settings {
+  encodeUrl: true
+}

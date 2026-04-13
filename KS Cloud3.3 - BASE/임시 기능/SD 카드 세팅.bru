@@ -1,0 +1,22 @@
+meta {
+  name: SD 카드 세팅
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_external_URL}}/restapi/sd_card_setting
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "stb_sn" : "KSU20100384",
+      "sd_card_setting" : "10"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

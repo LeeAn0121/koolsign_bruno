@@ -1,0 +1,26 @@
+meta {
+  name: 단말 재부팅
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_external_URL}}/restapi/stb_reboot
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+     "mem_id": "kyobo",
+     "stb_sn_str": "KSU24200249"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

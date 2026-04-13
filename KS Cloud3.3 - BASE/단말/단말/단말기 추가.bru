@@ -1,0 +1,27 @@
+meta {
+  name: 단말기 추가
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_external_URL}}/restapi/stb_group_stb
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "uid": 1,
+      "mode": "w",
+      "stb_uids": "11,12,13,14"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

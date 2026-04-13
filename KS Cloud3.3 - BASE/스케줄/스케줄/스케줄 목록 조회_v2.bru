@@ -1,0 +1,27 @@
+meta {
+  name: 스케줄 목록 조회_v2
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_external_URL}}/restapi/schedule_list_view_v2
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "limit": 100,
+      "page": 1
+  }
+}
+
+settings {
+  encodeUrl: true
+}

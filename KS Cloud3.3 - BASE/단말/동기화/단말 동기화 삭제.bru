@@ -1,0 +1,26 @@
+meta {
+  name: 단말 동기화 삭제
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_external_URL}}/restapi/delete_stb_sync
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+     "mem_id": "kyobo",
+     "check": "1" // 콤마 구분, 예: 101,102,103
+  }
+}
+
+settings {
+  encodeUrl: true
+}

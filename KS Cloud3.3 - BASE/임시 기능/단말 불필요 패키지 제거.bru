@@ -1,0 +1,21 @@
+meta {
+  name: 단말 불필요 패키지 제거
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_external_URL}}/restapi/stb_package_remove
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "stb_ip" : "172.16.61.42"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

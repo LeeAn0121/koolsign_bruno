@@ -1,0 +1,28 @@
+meta {
+  name: TV 제어 설정
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_external_URL}}/restapi/set_stb_control
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "stb_sn": "KSU20100384",
+      "tv_type": "ss",
+      "control_mode": "hdmi"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

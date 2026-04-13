@@ -1,0 +1,27 @@
+meta {
+  name: 단말 배포 다운로드 로그
+  type: http
+  seq: 13
+}
+
+post {
+  url: {{base_external_URL}}/restapi/get_send_download_log
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "limit": 10,
+      "page": 1
+  }
+}
+
+settings {
+  encodeUrl: true
+}

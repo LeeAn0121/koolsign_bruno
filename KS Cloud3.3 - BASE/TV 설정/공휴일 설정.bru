@@ -1,0 +1,27 @@
+meta {
+  name: 공휴일 설정
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_external_URL}}/restapi/set_stb_holiday
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "stb_sn": "KSU20100384",
+      "close_holiday": "N"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

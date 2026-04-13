@@ -1,0 +1,28 @@
+meta {
+  name: 배포 로그_v2
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_external_URL}}/restapi/get_deployment_log_v2
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "kyobo",
+      "limit": 2,
+      "page": 1,
+      "success_yn": "Y"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

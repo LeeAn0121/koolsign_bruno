@@ -1,0 +1,25 @@
+meta {
+  name: 스크린샷
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{base_external_URL}}/restapi/log_stb_screenshot_download_api
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

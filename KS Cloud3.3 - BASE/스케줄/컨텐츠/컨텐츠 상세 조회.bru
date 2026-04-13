@@ -1,0 +1,26 @@
+meta {
+  name: 컨텐츠 상세 조회
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{base_external_URL}}/restapi/contents_list_detail
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "uid" : "1"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

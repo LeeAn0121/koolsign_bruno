@@ -1,0 +1,122 @@
+meta {
+  name: 리소스 조회
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_external_URL}}/restapi/sys_monit
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "type": "cpu"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+docs {
+  ## Endpoint Description
+  
+  This API endpoint allows users to monitor system load metrics by submitting a POST request. It retrieves load averages for 1 minute, 5 minutes, and 15 minutes based on the provided user credentials.
+  
+  ### Request
+  
+  **Method:** POST  
+  **URL:** `{{base_external_URL}}/restapi/sys_monit`
+  
+  #### Request Body
+  
+  The request body must be in JSON format and should include the following parameters:
+  
+  - **mem_id** (string): The identifier for the user making the request. This is typically a username or user ID.
+      
+  - **type** (string): Specifies the type of monitoring request. For this endpoint, the value should be set to "load".
+      
+  
+  **Example Request Body:**
+  
+  ``` json
+  {
+    "mem_id": "koolsign_admin",
+    "type": "load"
+  }
+  
+   ```
+  
+  ### Response
+  
+  Upon a successful request, the API responds with a status code of 200 and returns a JSON object containing the following fields:
+  
+  - **code** (integer): Indicates the status of the request. A value of 0 signifies success.
+      
+  - **type** (string): This field may contain additional information about the type of data returned, though it is typically empty for this request.
+      
+  - **data** (object): Contains the load average data with the following properties:
+      
+      - **1min** (integer): The average load over the last 1 minute.
+          
+      - **5min** (integer): The average load over the last 5 minutes.
+          
+      - **15min** (integer): The average load over the last 15 minutes.
+          
+  
+  **Example Response:**
+  
+  ``` json
+  {
+    "code": 0,
+    "type": "",
+    "data": {
+      "1min": 0,
+      "5min": 0,
+      "15min": 0
+    }
+  }
+  
+   ```
+  
+  ### Summary
+  
+  This endpoint is essential for monitoring system performance by providing timely load averages, helping users make informed decisions based on system health.
+  
+  1. **시스템 부하 (****`load`****)**:
+      
+      - `/proc/loadavg` 파일을 읽습니다. 리눅스 커널이 직접 관리하는 파일로 가장 빠르고 정확합니다.
+          
+      - 각각 1분, 5분, 15분간의 대기 프로세스 평균값입니다.
+          
+  2. **CPU 모니터링 (****`cpu`****)**:
+      
+      - `vmstat 1 2`를 사용했습니다. `top` 명령어는 배치 모드(`-b`)로 실행해도 초기 실행 시점의 데이터가 부정확한 경우가 많습니다. `vmstat`은 1초 동안 시스템을 관찰한 후 평균값을 내주므로 "현재 부하"를 측정하기에 가장 적합합니다. `Idle` 값을 100에서 빼서 사용률을 구했습니다.
+          
+  3. **메모리 모니터링 (****`memory`****)**:
+      
+      - `free -m` 명령어를 파싱합니다. 전체(Total), 사용중(Used), 여유(Free) 값을 MB 단위로 반환하며, 사용률(%)을 서버에서 계산해서 줍니다.
+          
+  4. **디스크 모니터링 (****`disk`****)**:
+      
+      - `df -hP`를 사용합니다. `-P` 옵션은 긴 파일시스템 이름 때문에 줄바꿈이 일어나는 것을 방지하여 파싱 에러를 막습니다. `grep -v`로 불필요한 가상 파일시스템(tmpfs 등)을 제외했습니다.
+          
+  5. **네트워크 모니터링 (****`network`****)**:
+      
+      - 트래픽 "확인"은 "현재 속도"를 의미하는 경우가 많습니다. `/proc/net/dev`에는 부팅 후 누적 데이터만 있습니다.
+          
+      - 따라서 **"현재 값 읽기 -> 1초 대기 -> 다시 읽기 -> 차이 계산"** 로직을 사용하여 현재의 KB/sec 속도를 계산했습니다.
+          
+      - 네트워크 인터페이스(`eth0` 등)를 자동으로 감지하도록 처리했습니다.
+          
+  6. **Apache 모니터링 (****`apache`****)**:
+      
+      - 리눅스 기본 명령어인 `netstat`을 사용하여 80(HTTP), 443(HTTPS) 포트에 연결된 소켓 수를 셉니다.
+          
+      - `ESTABLISHED`: 현재 데이터를 주고받는 활성 사용자 수입니다.
+          
+      - `ps aux`: 아파치 프로세스 개수를 세어 서버가 얼마나 많은 자식 프로세스를 띄우고 있는지 확인합니다. (우분투는 `apache2`, CentOS는 `httpd` 프로세스명 체크)
+}

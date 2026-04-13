@@ -1,0 +1,28 @@
+meta {
+  name: 일일 스케줄 수정 v2
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_external_URL}}/restapi/modify_day_broadcast_v2
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "bid": "b_koolsign_admin_1773708825",
+      "broadcast_title": "null_test_modify",
+      "items": [
+          { "type": "empty", "start_time": "00:00:00", "end_time": "00:30:00" },
+          { "sid": "s_koolsign_admin_1767857569", "start_time": "00:30:00", "end_time": "01:00:00" },
+          { "type": "empty", "start_time": "01:00:00", "end_time": "02:00:00" }
+      ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,29 @@
+meta {
+  name: 단말 동기화 설정
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_external_URL}}/restapi/set_stb_sync
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+     "mem_id": "koolsign_admin",
+     "check": "1", // 콤마 구분, 예: 101,102,103, 1번에 오는 UID가 master
+     "display_type": "1", // 1: 특화형, 2: 1x3 Video Wall, 3: 2x3 Video Wall
+     "group_name": "test",
+     "sync_type": "multicast" // multicast 또는 unicast (기본값: multicast)
+  }
+}
+
+settings {
+  encodeUrl: true
+}

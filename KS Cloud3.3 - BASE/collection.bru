@@ -1,0 +1,17 @@
+meta {
+  name: KS Cloud3.3 - BASE
+}
+
+auth {
+  mode: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+vars:pre-request {
+  baseURL: http://172.16.140.15
+  base_external_URL: https://cms.koolsign.net/
+  Token: YVtaik58tzsKtgdUvn50tNbVpfeWc76M8dASvXjFveA,
+}

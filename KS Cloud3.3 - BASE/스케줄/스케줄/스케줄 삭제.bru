@@ -1,0 +1,26 @@
+meta {
+  name: 스케줄 삭제
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{base_external_URL}}/restapi/send_delete
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "admin",
+      "uid": "437,438" // uid 복수 선택 가능 ,로 구분 예시 : "304,305"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

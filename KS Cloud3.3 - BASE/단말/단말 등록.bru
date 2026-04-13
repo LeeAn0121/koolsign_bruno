@@ -1,0 +1,32 @@
+meta {
+  name: 단말 등록
+  type: http
+  seq: 18
+}
+
+post {
+  url: {{base_external_URL}}/restapi/stb_save
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "mode": "w",
+      "stb_id": "TEST13",
+      "stb_sn": "TEST13",
+      "stb_ip": "TEST13",
+      "stb_location": "TEST13",
+      "stb_size": "1920x1080",
+      "stb_group" : "6"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

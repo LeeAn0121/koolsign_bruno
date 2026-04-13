@@ -1,0 +1,38 @@
+meta {
+  name: 화면구성 생성
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_external_URL}}/restapi/save_schedule
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "template_id": "2",
+      "schedule_title": "REST_API_SCEHDULE_SAVE_TEST_3",
+      "cate1": "1",
+      "mode": "w",
+      "frames": [
+          {
+              "frame_no": 1, 
+              "content_id": 172,
+              "content_type": "movie", 
+              "content_order": 1,
+              "schedule_time": 1227
+          }
+      ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

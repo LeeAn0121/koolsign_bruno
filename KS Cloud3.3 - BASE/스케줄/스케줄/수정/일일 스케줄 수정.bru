@@ -1,0 +1,25 @@
+meta {
+  name: 일일 스케줄 수정
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://172.16.140.14/restapi/modify_day_broadcast
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "mem_id": "admin",
+      "bid": "",
+      "broadcast_title": "수정된 일일방송 제목",
+      "sid": "",
+      "broadcast_group": "1"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

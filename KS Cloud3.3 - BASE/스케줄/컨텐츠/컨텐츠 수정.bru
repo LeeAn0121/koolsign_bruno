@@ -1,0 +1,39 @@
+meta {
+  name: 컨텐츠 수정
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_external_URL}}/restapi/contents_save
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:multipart-form {
+  mode: m
+  mem_id: koolsign_admin
+  uid: 48
+  ctype: html
+  subject: RESTAPI_TEST_HTML_MODIFY
+  content: RESTAPI_TEST_HTML_DESCRIPTION
+  mem_group: 7
+  html: rtsp://172.16.59.6:33151/
+  ~file: @file(/home/johyeonu/다운로드/UserPhoto.png)
+  ~subtitle_content: subtitle_content_test
+  ~fontDetailSize: 25pt
+  ~textspeed: 3
+  ~setTextColor: #ffffff
+  ~setBackImg: #000000
+  ~bg_opacity: 127
+  ~font_effect: RightToLeft
+  ~setTextAlign: Left
+}
+
+settings {
+  encodeUrl: true
+}

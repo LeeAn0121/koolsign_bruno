@@ -1,0 +1,27 @@
+meta {
+  name: live 매핑 추가
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_external_URL}}/restapi/add_live_mapping
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "stb_group_uid": "5",
+      "live_url_list": "udp://224.3.3.3:3300, udp://224.3.3.3:3301"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,27 @@
+meta {
+  name: 볼륨 설정
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_external_URL}}/restapi/set_stb_volume
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "stb_sn": "KSU20100384",
+      "volume_level": 10
+  }
+}
+
+settings {
+  encodeUrl: true
+}

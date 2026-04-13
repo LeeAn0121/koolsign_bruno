@@ -1,0 +1,26 @@
+meta {
+  name: 대시보드 조회
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_external_URL}}/restapi/dashboard
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "admin",
+      "stb_sn": "KSU24200249"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

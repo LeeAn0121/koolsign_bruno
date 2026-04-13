@@ -1,0 +1,38 @@
+meta {
+  name: 컨텐츠 등록
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_external_URL}}/restapi/contents_save
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:multipart-form {
+  mode: w
+  mem_id: koolsign_admin
+  ctype: rtsp
+  subject: RESTAPI_TEST_RTSP
+  content: RESTAPI_TEST_RTSP_DESCRIPTION
+  mem_group: 7
+  html: http://172.16.33.12:8001/live
+  ~file: @file(/home/johyeonu/다운로드/꼬꼬무.mp4)
+  ~subtitle_content: subtitle_content_test
+  ~fontDetailSize: 25pt
+  ~textspeed: 3
+  ~setTextColor: #ffffff
+  ~setBackImg: #000000
+  ~bg_opacity: 127
+  ~font_effect: RightToLeft
+  ~setTextAlign: Left
+}
+
+settings {
+  encodeUrl: true
+}

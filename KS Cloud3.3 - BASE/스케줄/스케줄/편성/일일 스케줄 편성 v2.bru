@@ -1,0 +1,31 @@
+meta {
+  name: 일일 스케줄 편성 v2
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_external_URL}}/restapi/save_broadcast_day_v2
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "broadcast_title": "일일편성_3",
+      "broadcast_group": "7",
+      "items": [
+          { "type": "empty", "start_time": "15:00:00", "end_time": "15:20:27" },
+          { "sid": "s_koolsign_admin_1769062059", "start_time": "15:20:27", "end_time": "24:00:00" }
+      ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

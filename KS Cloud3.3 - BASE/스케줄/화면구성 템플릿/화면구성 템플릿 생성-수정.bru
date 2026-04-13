@@ -1,0 +1,36 @@
+meta {
+  name: 화면구성 템플릿 생성/수정
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_external_URL}}/restapi/template_create
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+    "data": [{ "height": 10, "width": 10, "x": 0, "y": 0 }],
+    "subject": "RESTAPI_TEST_TEMPLATE",
+    "template_size": "1920x1080",
+    "cate1": "1",
+    "cate2": "1",
+    "cate3": "1",
+    "mode": "w",
+    "template_ratio": "4",
+    "basic": "N",
+    "mem_id": "koolsign_admin",
+    "background": ""
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+}

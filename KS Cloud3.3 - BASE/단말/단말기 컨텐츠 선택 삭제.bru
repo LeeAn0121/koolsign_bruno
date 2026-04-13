@@ -1,0 +1,27 @@
+meta {
+  name: 단말기 컨텐츠 선택 삭제
+  type: http
+  seq: 21
+}
+
+post {
+  url: {{base_external_URL}}/restapi/stb_file_delete
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "stb_sn": "KSU24200249",
+      "check": "aa56f56de5c546f778e8a739ea71acde.mp4koolsign%21%40%23%24%25%2120251230+%EB%B2%A0%ED%94%84%EB%A5%BC%EC%B0%BE%EC%95%84%EC%84%9C+%EB%B2%A0%EC%8A%A4%ED%8A%B8_%EC%82%AC%EC%9D%B4%EB%8B%88%EC%A7%80.mp4"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

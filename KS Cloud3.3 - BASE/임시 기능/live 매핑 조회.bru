@@ -1,0 +1,28 @@
+meta {
+  name: live 매핑 조회
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_external_URL}}/restapi/get_live_mapping
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "stb_group_uid": "5",
+      "page": "1",
+      "limit": "10"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

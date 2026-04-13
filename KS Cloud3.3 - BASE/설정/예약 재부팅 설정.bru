@@ -1,0 +1,28 @@
+meta {
+  name: 예약 재부팅 설정
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{base_external_URL}}/restapi/set_stb_reboot_reservation
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "stb_uid": 33,
+      "yoil": [0, 1, 2, 3, 4, 5, 6], 
+      "start": "17:47"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,27 @@
+meta {
+  name: 스크린샷 보기_v2
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{base_external_URL}}/restapi/get_capture_status_v2
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin", // 필수 
+      "page": 1, // 필수
+      "limit": 10 // 필수
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,37 @@
+meta {
+  name: 월간 스케줄 수정
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{base_external_URL}}/restapi/modify_month_broadcast
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "mem_id": "admin",
+      "bid": "b_admin_1767685827",
+      "broadcast_title": "수정된 월간 스케줄",
+      "schedule_list": [
+          {
+              "bid": "b_admin_1761113127",
+              "type": "day",
+              "s_date": "2025-01-08",
+              "e_date": "2025-01-08"
+          },
+          {
+              "bid": "b_admin_1761113164",
+              "type": "week",
+              "s_date": "2025-01-21",
+              "e_date": "2025-01-27"
+          }
+      ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

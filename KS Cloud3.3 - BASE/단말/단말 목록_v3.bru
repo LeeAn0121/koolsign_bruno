@@ -1,0 +1,28 @@
+meta {
+  name: 단말 목록_v3
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{base_external_URL}}/restapi/stb_list_v3
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+     "mem_id": "kyobo",
+     "limit" : 1,
+     "page" : 1,
+     "stb_group" : ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}

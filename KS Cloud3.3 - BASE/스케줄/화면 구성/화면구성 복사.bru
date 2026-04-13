@@ -1,0 +1,26 @@
+meta {
+  name: 화면구성 복사
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://172.16.140.14/restapi/copy_schedule
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "sid": "s_admin_1767145748"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

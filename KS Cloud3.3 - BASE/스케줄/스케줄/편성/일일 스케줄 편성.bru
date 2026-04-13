@@ -1,0 +1,28 @@
+meta {
+  name: 일일 스케줄 편성
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_external_URL}}/restapi/save_broadcast_day
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "broadcast_title": "신규_일일편성_테스트",
+      "sid": "s_koolsign_admin_1768200838",
+      "broadcast_group": "7"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

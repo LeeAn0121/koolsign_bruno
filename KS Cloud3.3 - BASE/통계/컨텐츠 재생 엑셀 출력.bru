@@ -1,0 +1,28 @@
+meta {
+  name: 컨텐츠 재생 엑셀 출력
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{base_external_URL}}/restapi/log_content_stbs_stat_download_api
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "contents_uid": 43,
+      "start_time": "1975-01-01",
+      "end_time": "2975-01-01"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

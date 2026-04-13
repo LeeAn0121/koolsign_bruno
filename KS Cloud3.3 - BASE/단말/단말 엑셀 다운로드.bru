@@ -1,0 +1,25 @@
+meta {
+  name: 단말 엑셀 다운로드
+  type: http
+  seq: 24
+}
+
+post {
+  url: {{base_external_URL}}/restapi/stb_excel_download
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

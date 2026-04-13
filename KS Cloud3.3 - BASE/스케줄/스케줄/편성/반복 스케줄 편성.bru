@@ -1,0 +1,29 @@
+meta {
+  name: 반복 스케줄 편성
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_external_URL}}/restapi/save_broadcast_repeat
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "broadcast_title": "broadcast_share_test",
+      "sid": "s_koolsign_admin_1767836492, s_koolsign_admin_1773193582",
+      "broadcast_group": "7",
+      "share_status": "Y"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

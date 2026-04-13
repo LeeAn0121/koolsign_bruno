@@ -1,0 +1,26 @@
+meta {
+  name: 프로필 이미지
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_external_URL}}/restapi/profile_upload
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:multipart-form {
+  mem_id: test_user_02
+  bfile: @file(/home/johyeonu/다운로드/300px-검은색.jpg)
+  mode: m
+  photo_delete: N
+}
+
+settings {
+  encodeUrl: true
+}

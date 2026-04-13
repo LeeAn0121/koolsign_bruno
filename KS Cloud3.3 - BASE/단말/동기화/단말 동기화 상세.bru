@@ -1,0 +1,26 @@
+meta {
+  name: 단말 동기화 상세
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_external_URL}}/restapi/get_stb_sync_detail
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+     "mem_id": "koolsign_admin",
+     "sync_id": "sync_1770013157"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

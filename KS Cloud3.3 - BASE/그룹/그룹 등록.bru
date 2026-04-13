@@ -1,0 +1,29 @@
+meta {
+  name: 그룹 등록
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{base_external_URL}}/restapi/group_create
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "kyobo",
+      "code_num": "cate1",
+      "group": "member",
+      "code_name": "교보생명",
+      "depth": 1
+  }
+}
+
+settings {
+  encodeUrl: true
+}

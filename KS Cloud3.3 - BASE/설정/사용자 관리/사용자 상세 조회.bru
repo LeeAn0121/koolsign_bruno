@@ -1,0 +1,25 @@
+meta {
+  name: 사용자 상세 조회
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{base_external_URL}}/restapi/member_list_detail
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "test11111"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

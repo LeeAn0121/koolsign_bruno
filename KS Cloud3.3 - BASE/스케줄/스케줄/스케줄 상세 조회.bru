@@ -1,0 +1,26 @@
+meta {
+  name: 스케줄 상세 조회
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{base_external_URL}}/restapi/schedule_list_details_view
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "bid": "b_koolsign_admin_1768877503"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

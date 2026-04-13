@@ -1,0 +1,29 @@
+meta {
+  name: 자동 ON/OFF
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_external_URL}}/restapi/set_stb_on_off
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "stb_sn": "KSU24200249",
+      "tv_close_day": ["0","1","2","3","4","5","6"],
+      "tv_close_start": "06:00",
+      "tv_close_end": "22:00"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,28 @@
+meta {
+  name: 수정
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_external_URL}}/restapi/stb_group_save
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "mode": "m",
+      "uid": "3",
+      "group_name": "서울지점_1층_로비_수정"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

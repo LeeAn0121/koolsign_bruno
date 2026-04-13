@@ -1,0 +1,27 @@
+meta {
+  name: 공휴일 관리
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{base_external_URL}}/restapi/set_holiday
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "date": "2026-01-01",
+      "is_holiday": "Y"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

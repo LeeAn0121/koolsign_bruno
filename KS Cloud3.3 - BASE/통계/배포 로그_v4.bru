@@ -1,0 +1,28 @@
+meta {
+  name: 배포 로그_v4
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_external_URL}}/restapi/get_deployment_log_v4
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "distinct": "true",
+      "limit": 10,
+      "page": 1
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,25 @@
+meta {
+  name: 반복 스케줄 수정
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base_external_URL}}/restapi/modify_repeat_broadcast
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "mem_id": "admin",
+      "bid": "b_admin_1767147549",
+      "broadcast_title": "RESTAPI_BROADCAST_PEPEAT_TEST_MODIFY",
+      "sid": "s_admin_1767145748",
+      "broadcast_group": "1"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

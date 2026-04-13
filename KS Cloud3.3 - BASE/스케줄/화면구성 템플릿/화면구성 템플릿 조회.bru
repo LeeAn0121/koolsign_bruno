@@ -1,0 +1,27 @@
+meta {
+  name: 화면구성 템플릿 조회
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_external_URL}}/restapi/template_list
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "limit": 1,
+      "page": 1
+  }
+}
+
+settings {
+  encodeUrl: true
+}

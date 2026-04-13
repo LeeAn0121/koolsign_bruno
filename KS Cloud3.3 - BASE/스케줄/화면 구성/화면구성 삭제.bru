@@ -1,0 +1,26 @@
+meta {
+  name: 화면구성 삭제
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_external_URL}}/restapi/delete_schedule
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "sid": "s_koolsign_admin_1767846146,s_koolsign_admin_1767836492"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

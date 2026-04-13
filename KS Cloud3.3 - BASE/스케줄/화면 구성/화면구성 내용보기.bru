@@ -1,0 +1,26 @@
+meta {
+  name: 화면구성 내용보기
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{base_external_URL}}/restapi/schedule_preview
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mem_id": "koolsign_admin",
+      "sid": "s_koolsign_admin_1768182686"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

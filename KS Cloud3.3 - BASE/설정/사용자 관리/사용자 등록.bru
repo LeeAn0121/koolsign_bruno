@@ -1,0 +1,31 @@
+meta {
+  name: 사용자 등록
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_external_URL}}/restapi/member_save
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{Token}}
+}
+
+body:json {
+  {
+      "mode": "w",
+      "mem_id": "test_user_03",
+      "mem_passwd": "password123!",
+      "mem_level": "user",
+      "mem_group": "7",
+      "mem_email": "test@example.com",
+      "mem_name": "홍길동"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
