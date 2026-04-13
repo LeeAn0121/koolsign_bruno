@@ -1,0 +1,27 @@
+meta {
+  name: 단말기 상태 체크
+  type: http
+  seq: 25
+}
+
+post {
+  url: {{base_external_URL}}/restapi/tv_input_status
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: cH1oV3dInikysSqAX4EG-KhdmlSFQgFfQTOwVWCmDJ4,
+}
+
+body:json {
+  {
+    "mem_id": "koolsign_admin",
+    "stb_sn": "KSU24200135"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
