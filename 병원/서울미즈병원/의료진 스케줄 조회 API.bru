@@ -1,0 +1,25 @@
+meta {
+  name: 의료진 스케줄 조회 API
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://1.215.6.60/seomizhospi/get_doc_sch
+  body: multipartForm
+  auth: apikey
+}
+
+auth:apikey {
+  key: API-Key
+  value: 6d8ebd96-37f9-4597-a237-01ca91e413e3
+  placement: header
+}
+
+body:multipart-form {
+  DRID: GY37
+}
+
+settings {
+  encodeUrl: true
+}

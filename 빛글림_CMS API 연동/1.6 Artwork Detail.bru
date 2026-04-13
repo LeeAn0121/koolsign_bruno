@@ -1,0 +1,62 @@
+meta {
+  name: 1.6 Artwork Detail
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://digiterior.com/api/user/tvapp/ks-artwork-information
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbl9pZCI6MTUyNzk2LCJkZXZpY2VfaWQiOiJLT09MU0lHTi1URVNUIiwibG9naW5fZGF0ZSI6IjIwMjUtMDItMjcgMTk6MjU6MjYiLCJhcHBfdHlwZSI6IktTQ2xvdWQifQ.JW121DC2c-3DO2VNkjeYgqdnp7GE8gO8wfF4H2xnrpE
+  X-localization: kr
+}
+
+body:json {
+  {
+      "contentId" : "53063"
+  }
+}
+
+script:post-response {
+  test('Status code is successful (2xx)', function () {
+      expect(res.getStatus()).to.be.within(200, 299);
+  })
+  
+  test('Response time is less than 2000ms', function () {
+      expect(res.getResponseTime()).to.be.below(2000);
+  })
+  
+  test('Content-Type header is application/json', function () {
+      expect(res.getHeader('Content-Type')).to.include('application/json');
+  })
+  
+  test('Response body is valid JSON', function () {
+      res.getBody();
+  })
+  
+  test('Response has expected structure for artwork detail', function () {
+      const jsonData = res.getBody();
+      expect(jsonData).to.be.an('object');
+  })
+  
+  test('Check for artwork detail fields in response', function () {
+      const jsonData = res.getBody();
+      const hasData = jsonData.data || jsonData.artwork || jsonData.id || jsonData.contentId;
+      expect(hasData).to.not.be.undefined;
+  })
+  
+  test('Authorization error handling - check for 401/403', function () {
+      if (res.getStatus() === 401 || res.getStatus() === 403) {
+          console.log('Authorization error detected: ' + res.getStatus() + '. Ensure valid JWT token is provided in Authorization header.');
+          expect.fail('Request returned authorization error: ' + res.getStatus());
+      }
+  })
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,26 @@
+meta {
+  name: 기쁨병원 호출
+  type: http
+  seq: 9
+}
+
+post {
+  url: http://121.135.203.101/api/v1/gibbeum/update_waiting_list
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "환자번호": "15007633",
+      "환자명": "홍길동",
+      "호출부서": "303",
+      "호출방": "1_초음파_3",
+      "성별": "M",
+      "나이": "33"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

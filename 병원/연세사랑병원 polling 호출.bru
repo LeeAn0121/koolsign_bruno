@@ -1,0 +1,15 @@
+meta {
+  name: 연세사랑병원 polling 호출
+  type: http
+  seq: 15
+}
+
+get {
+  url: http://49.1.226.226/yonseisarang/db_polling
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,25 @@
+meta {
+  name: 의료진 정보_조회_테스트
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://91wtlf2ty8.apigw.ntruss.com/symc-test-adm-api/v1/apk/ptad-almtk-web/dctr-apnt-week?wrknYm=202311
+  body: none
+  auth: inherit
+}
+
+params:query {
+  wrknYm: 202311
+  ~mcdpCd: 
+  ~mddrId: 
+}
+
+headers {
+  x-ncp-apigw-api-key: ANOPUoAu4PtCNdsClRyCY6F7rBI4CAebouWRKpIo
+}
+
+settings {
+  encodeUrl: true
+}

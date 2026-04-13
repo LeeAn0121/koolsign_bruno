@@ -1,0 +1,26 @@
+meta {
+  name: 예수병원 호출
+  type: http
+  seq: 10
+}
+
+post {
+  url: http://172.16.135.240:12100/api/v1/jesus/update_waiting_list
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "type": "desk_issue",
+      "zone_id": "1",
+      "zone_name": "접수/수납",
+      "desk_id": "1",
+      "desk_name": "1번 창구",
+      "desk_issue_number": 1234
+  }
+}
+
+settings {
+  encodeUrl: true
+}

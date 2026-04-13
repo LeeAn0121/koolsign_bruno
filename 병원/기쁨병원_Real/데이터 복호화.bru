@@ -1,0 +1,31 @@
+meta {
+  name: 데이터 복호화
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://121.135.203.113:8085/MediCare/NGTApi/AgentByToken
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "svrm": "neQXtaeRRZ0RtN5479aI2A==",
+      "param": {
+          "jobs": "D",
+          "maid": "",
+          "tokn": "",
+          "mddt": "",
+          "Depts": {
+              "pafg": "",
+              "loca": "GS01"
+          }
+      }
+  }
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,23 @@
+meta {
+  name: 외래_전광판_메시지_조회_테스트
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://91wtlf2ty8.apigw.ntruss.com/symc-test-med-api/v1/xnm/elbd/mesg/mno?elbdNo=DCAR0000001
+  body: none
+  auth: inherit
+}
+
+params:query {
+  elbdNo: DCAR0000001
+}
+
+headers {
+  x-ncp-apigw-api-key: ANOPUoAu4PtCNdsClRyCY6F7rBI4CAebouWRKpIo
+}
+
+settings {
+  encodeUrl: true
+}

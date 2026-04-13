@@ -1,0 +1,26 @@
+meta {
+  name: 원무과 순번 호출
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://192.168.130.200/api/v1/ysun/zone_wait
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "zone_id": "13",
+      "issue_num": "1000",
+      "issue_cnt": "0001",
+      "desk_id": "3",
+      "desk_issue_num": "1000",
+      "sound_option": "on"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

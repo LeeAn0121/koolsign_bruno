@@ -1,0 +1,32 @@
+meta {
+  name: 기쁨 병원 수술실 정보 입력_제외
+  type: http
+  seq: 13
+}
+
+post {
+  url: http://172.16.40.154/gibbeum/surgery_info_insert
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "patient_name": "홍길동",
+      "patient_sex": "M",
+      "patient_age": "20",
+      "doctor_code": "A",
+      "operation_status": "operating",
+      "operation_title": "Lapa-Cholecy stectomy (Acute)",
+      "operation_start_time": "2023-02-08 10:00:00",
+      "operation_end_time": "2023-02-09 02:00:00",
+      "operation_wait_start_time": "2023-02-08 9:30:00",
+      "operation_wait_end_time": "2023-02-09 02:00:00",
+      "recovery_start_time": "2023-02-09 02:00:00",
+      "recovery_end_time": "2023-02-09 04:00:00"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

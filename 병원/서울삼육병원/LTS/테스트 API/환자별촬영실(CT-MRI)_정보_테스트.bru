@@ -1,0 +1,23 @@
+meta {
+  name: 환자별촬영실(CT/MRI)_정보_테스트
+  type: http
+  seq: 10
+}
+
+get {
+  url: https://91wtlf2ty8.apigw.ntruss.com/symc-test-sup-api/v1/szi/elecBoard/ptExmnDept/info?gubun=G
+  body: none
+  auth: inherit
+}
+
+params:query {
+  gubun: G
+}
+
+headers {
+  x-ncp-apigw-api-key: ANOPUoAu4PtCNdsClRyCY6F7rBI4CAebouWRKpIo
+}
+
+settings {
+  encodeUrl: true
+}

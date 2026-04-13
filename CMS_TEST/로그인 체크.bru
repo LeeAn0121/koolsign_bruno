@@ -1,0 +1,20 @@
+meta {
+  name: 로그인 체크
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://172.16.140.6/cmd/login_check
+  body: multipartForm
+  auth: inherit
+}
+
+body:multipart-form {
+  mem_id: q0GYzKfJLzb74ryEtrOxVqhLPnO8AwJX4Kz6gS2tL/8ZHVHe8+KsUlG4UXqBx9rp2z35Vn0IEGgzlkt2ROP+YxVH2CETwjAT8FDgDQpw8aLvEZifxleKoKfRpCAe+i0kGzODI2yBc+UJ7qU2+l57v03DSNPuSYdwqGBNISoYIGnMq4+xaDQ8fjCAXl+u4+xapdq7/4w8AzFmNp/FvDir0MFqBfJC93mIl+X6Lm6az3X3Rhal7AyzYosP+t7ji1idb4bZ6h7Jh3Mid1QKhdCXS+dlEzGpv4JT7h1jsENRHu1BWBMVU+YChJmBY8O/QMvbxUHL/GxQ9T3WkaxIgQGAdQ==
+  mem_passwd: EaiHyOP2vvW1+Q8AgJ9bY+Cwn3nxKp+/NU4FqGuLBOZTl2S2FLUFEHTfkmWWyLEdzFTn8+Wm8oVxGII6zEADGDsxjV3OR+denMKV0UAmeDhCxN11hpYEuwPp5Nv70JHgHJfP8FGynrhzC+m205L9vFL8e+MlBXwECwuXIkJC8r8lUMIjMAXmu+VXUgQ0TnyfaXu0vb+z2gc35Dxef18hTwF4oGHRg250XsfZNyBCzO9PeVegyNLyaO8kx/FXtvI+g7aJbMkyRZvukCk6+Pqn6d6/a6mCwdvn2RomMIv21GO/RfxvACVFSdNOrKfOC87fMhLKnn9DtavP2KgPy8PRog==
+}
+
+settings {
+  encodeUrl: true
+}

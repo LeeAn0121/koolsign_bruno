@@ -1,0 +1,22 @@
+meta {
+  name: 서울시_실시간버스위치정보조회_노선ID로(getBusPosByRtidList)
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://ws.bus.go.kr/api/rest/buspos/getBusPosByRtid?ServiceKey=oOBuwQik1BC4a55ZbHb+boh6dhcfSNd9YRQVzRK14tC6nsBiKhvy1rKQJHQV3SWn51nEDVvdf/B6+DCDL+/cPw==&busRouteId=116900007
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ServiceKey: oOBuwQik1BC4a55ZbHb+boh6dhcfSNd9YRQVzRK14tC6nsBiKhvy1rKQJHQV3SWn51nEDVvdf/B6+DCDL+/cPw==
+  busRouteId: 116900007
+  ~startOrd: 1
+  ~endOrd: 10
+}
+
+settings {
+  encodeUrl: true
+}

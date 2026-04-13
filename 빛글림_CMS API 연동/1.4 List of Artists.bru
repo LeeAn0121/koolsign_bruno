@@ -1,0 +1,57 @@
+meta {
+  name: 1.4 List of Artists
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://digiterior.com/api/user/tvapp/get-artist
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbl9pZCI6MTUyNzg0LCJkZXZpY2VfaWQiOiJLU1UyMDEwMDM4NCIsImxvZ2luX2RhdGUiOiIyMDI1LTAyLTA3IDA5OjU0OjM2IiwiYXBwX3R5cGUiOiJTdGFuZGFyZEFQSSJ9.HIWKDj8ifaoyf3aaHJACtJK5qdpIe6aHTR52SSh1WqQ
+  ContentItemLimit: 10
+  X-localization: kr
+}
+
+script:post-response {
+  test('Status code is successful (2xx)', function () {
+      expect(res.getStatus()).to.be.within(200, 299);
+  })
+  
+  test('Response time is less than 2000ms', function () {
+      expect(res.getResponseTime()).to.be.below(2000);
+  })
+  
+  test('Content-Type header is application/json', function () {
+      expect(res.getHeader('Content-Type')).to.include('application/json');
+  })
+  
+  test('Response body is valid JSON', function () {
+      res.getBody();
+  })
+  
+  test('Response has expected structure for artist list', function () {
+      const jsonData = res.getBody();
+      expect(jsonData).to.be.an('object');
+  })
+  
+  test('Check for artist data array in response', function () {
+      const jsonData = res.getBody();
+      const hasData = jsonData.data || jsonData.artists || Array.isArray(jsonData);
+      expect(hasData).to.not.be.undefined;
+  })
+  
+  test('Authorization error handling - check for 401/403', function () {
+      if (res.getStatus() === 401 || res.getStatus() === 403) {
+          console.log('Authorization error detected: ' + res.getStatus() + '. Ensure valid JWT token is provided in Authorization header.');
+          expect.fail('Request returned authorization error: ' + res.getStatus());
+      }
+  })
+}
+
+settings {
+  encodeUrl: true
+}

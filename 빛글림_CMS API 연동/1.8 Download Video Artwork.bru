@@ -1,0 +1,68 @@
+meta {
+  name: 1.8 Download Video Artwork
+  type: http
+  seq: 8
+}
+
+post {
+  url: https://digiterior.com/api/user/tvapp/downloadArtwork
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbl9pZCI6MTUyNzk2LCJkZXZpY2VfaWQiOiJLT09MU0lHTi1URVNUIiwibG9naW5fZGF0ZSI6IjIwMjUtMDItMjcgMjA6MDA6NDkiLCJhcHBfdHlwZSI6IktTQ2xvdWQifQ.ToI7mHlkLlzg_luCT954_uxZo9kmjyTJexCvUHCOWus
+  X-localization: kr
+}
+
+body:json {
+  {
+      "contentId" : "53063"
+  }
+}
+
+script:post-response {
+  test('Status code is successful (2xx)', function () {
+      expect(res.getStatus()).to.be.within(200, 299);
+  })
+  
+  test('Response time is less than 2000ms', function () {
+      expect(res.getResponseTime()).to.be.below(2000);
+  })
+  
+  test('Content-Type header is present', function () {
+      const contentType = res.getHeader('Content-Type');
+      expect(contentType).to.not.be.undefined;
+  })
+  
+  test('Response body is valid JSON or binary data', function () {
+      const contentType = res.getHeader('Content-Type');
+      if (contentType && contentType.includes('application/json')) {
+          res.getBody();
+      } else {
+          expect(JSON.stringify(res.getBody())).to.not.be.empty;
+      }
+  })
+  
+  test('Check for download URL or binary data in response', function () {
+      const contentType = res.getHeader('Content-Type');
+      if (contentType && contentType.includes('application/json')) {
+          const jsonData = res.getBody();
+          const hasData = jsonData.url || jsonData.download_url || jsonData.data || jsonData.file;
+          expect(hasData).to.not.be.undefined;
+      } else {
+          expect(JSON.stringify(res.getBody()).length).to.be.above(0);
+      }
+  })
+  
+  test('Authorization error handling - check for 401/403', function () {
+      if (res.getStatus() === 401 || res.getStatus() === 403) {
+          console.log('Authorization error detected: ' + res.getStatus() + '. Ensure valid JWT token is provided in Authorization header.');
+          expect.fail('Request returned authorization error: ' + res.getStatus());
+      }
+  })
+}
+
+settings {
+  encodeUrl: true
+}

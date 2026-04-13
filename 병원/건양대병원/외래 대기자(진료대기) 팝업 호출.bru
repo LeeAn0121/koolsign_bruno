@@ -1,0 +1,26 @@
+meta {
+  name: 외래 대기자(진료대기) 팝업 호출
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://172.16.52.90/api/v1/kyuh/call_doctor_waiting_list
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "type":"call_pat",
+      "zone_code":"END",
+      "doctor_code":"001410",
+      "doctor_name":"박근용",
+      "patient_code":"002000042",
+      "patient_name":"이순자"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

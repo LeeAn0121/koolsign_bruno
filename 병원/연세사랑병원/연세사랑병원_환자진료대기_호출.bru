@@ -1,0 +1,39 @@
+meta {
+  name: 연세사랑병원_환자진료대기_호출
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://49.1.227.114/yonseisarang/send_call_dept_waiting_test
+  body: json
+  auth: none
+}
+
+body:json {
+  [
+      {
+          "json": {
+              "DEPTCODE": "OS",
+              "DRCODE": "88208 ",
+              "ACCOUNTDATE": "2025-02-18",
+              "PTNO": "00295515",
+              "Sname": "홍길동 ",
+              "SEX": "F",
+              "AGE": "63",
+              "PROCESSFLAG": "1",
+              "PROCESSNAME": "진료대기",
+              "WRITETIME": "15:36",
+              "RECEIPTDATE": "2025-02-11",
+              "RESERVEDFLAG": "1",
+              "REVFLAG": "Y",
+              "KIOSKJUPSUTIME": "11:31:03",
+              "DISPLAYRANKING": "1"
+          }
+      }
+  ]
+}
+
+settings {
+  encodeUrl: true
+}

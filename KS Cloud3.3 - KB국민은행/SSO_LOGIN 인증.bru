@@ -1,0 +1,30 @@
+meta {
+  name: SSO_LOGIN 인증
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://172.16.135.28/cmd/sso_login_check?random_token=fail
+  body: json
+  auth: inherit
+}
+
+params:query {
+  random_token: fail
+}
+
+body:json {
+  {
+      "random_token": "WiKN1dIe"
+      // "parameter": [
+      //     {
+      //         "random_token": "3610"
+      //     }
+      // ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

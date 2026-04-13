@@ -1,0 +1,19 @@
+meta {
+  name: 건양대병원 진료대기 호출
+  type: http
+  seq: 14
+}
+
+get {
+  url: http://172.16.52.90/api/v1/kyuh/dept_waiting?uid=7
+  body: none
+  auth: inherit
+}
+
+params:query {
+  uid: 7
+}
+
+settings {
+  encodeUrl: true
+}

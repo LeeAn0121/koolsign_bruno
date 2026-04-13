@@ -1,0 +1,25 @@
+meta {
+  name: https://maps.apigw.ntruss.com/map-geocode/v2
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://maps.apigw.ntruss.com/map-geocode/v2/geocode?query=동구 화도진로 16
+  body: none
+  auth: inherit
+}
+
+params:query {
+  query: 동구 화도진로 16
+}
+
+headers {
+  X-NCP-APIGW-API-KEY-ID: 2dfftkgecf
+  X-NCP-APIGW-API-KEY: 7fb3KkOpSMJdEiN4x1THciXjPqBhMlbJAwc570Zl
+  Accept: application/json
+}
+
+settings {
+  encodeUrl: true
+}

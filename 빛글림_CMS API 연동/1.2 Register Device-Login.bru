@@ -1,0 +1,60 @@
+meta {
+  name: 1.2 Register Device/Login
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://digiterior.com/api/user/tvapp/ks-device-register
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "device_id": "KOOLSIGN-TEST",
+      "email": "support@koolsign.net",
+      "name": "KOOLSIGN-TEST",
+      "company_name": "KOOLSIGN"
+  }
+}
+
+script:post-response {
+  test('Status code is successful (2xx)', function () {
+      expect(res.getStatus()).to.be.within(200, 299);
+  })
+  
+  test('Response time is less than 2000ms', function () {
+      expect(res.getResponseTime()).to.be.below(2000);
+  })
+  
+  test('Content-Type header is application/json', function () {
+      expect(res.getHeader('Content-Type')).to.include('application/json');
+  })
+  
+  test('Response body is valid JSON', function () {
+      res.getBody();
+  })
+  
+  test('Response has expected structure for device registration', function () {
+      const jsonData = res.getBody();
+      expect(jsonData).to.be.an('object');
+  })
+  
+  test('Check for token or authentication data in response', function () {
+      const jsonData = res.getBody();
+      const hasAuthData = jsonData.token || jsonData.access_token || jsonData.data;
+      expect(hasAuthData).to.not.be.undefined;
+  })
+  
+  test('Authorization error handling - check for 401/403', function () {
+      if (res.getStatus() === 401 || res.getStatus() === 403) {
+          console.log('Authorization error detected: ' + res.getStatus());
+          expect.fail('Request returned authorization error: ' + res.getStatus());
+      }
+  })
+}
+
+settings {
+  encodeUrl: true
+}

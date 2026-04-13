@@ -1,0 +1,23 @@
+meta {
+  name: 케어랩스_원무과 현황 동기화 1
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://211.208.90.212:82/socket/yusung_total_wait_did.php
+  body: multipartForm
+  auth: inherit
+}
+
+headers {
+  Content-Type: multipart/form-data
+}
+
+body:multipart-form {
+  service_key: yusung_space
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,33 @@
+meta {
+  name: Step 1. 토큰 발급
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://121.135.203.113:8085/MediCare/NGTApi/AgentByToken
+  body: json
+  auth: inherit
+}
+
+body:json {
+  // {
+  //     "svrm": "AGkDZRjv5L+6u+B1gTZCzg==",
+  //     "param": {
+  //         "jobs": "A",
+  //         "ilyn": "Y",
+  //         "bzcd": "60007",
+  //         "kind": "WAITING",
+  //         "code": "650"
+  //     }
+  // }
+  // 위 데이터를 암호화 한다.
+  // {
+  //     "svrm": "AGkDZRjv5L+6u+B1gTZCzg==",
+  //     "param": "DLIeqkK96wxvxwTvKiT4dS2PQJ1JJtoc9MrC+E9ln/DWEDMJcyu1N3OPsRd6tzhqQ1i58mvR3hobK3EcT3/DuwVCg3vqT8pxcYCqBD9/p1w="
+  // }
+}
+
+settings {
+  encodeUrl: true
+}

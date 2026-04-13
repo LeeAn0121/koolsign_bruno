@@ -1,0 +1,68 @@
+meta {
+  name: 의료진 스케줄 조회
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://121.150.254.202/api/get_doc_sch
+  body: json
+  auth: apikey
+}
+
+auth:apikey {
+  key: API-Key
+  value: 6d8ebd96-37f9-4597-a237-01ca91e413e3
+  placement: header
+}
+
+body:json {
+  {
+      "DRID": "AA00281"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 의료진 스케줄 조회
+  
+  request: {
+    url: http://121.150.254.202/api/get_doc_sch
+    method: POST
+    mode: multipartForm
+    body:multipart-form: {
+      DRID: AA00482
+    }
+  }
+  
+  response: {
+    headers: {
+      Date: Tue, 29 Oct 2024 07:32:53 GMT
+      Server: Apache/2.4.59 (Ubuntu)
+      Expires: Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control: no-store, no-cache, must-revalidate
+      Pragma: no-cache
+      Vary: Accept-Encoding
+      Content-Encoding: gzip
+      Content-Length: 158
+      Keep-Alive: timeout=5, max=99
+      Connection: Keep-Alive
+      Content-Type: text/html; charset=UTF-8
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: html
+      content: '''
+  
+      '''
+    }
+  }
+}

@@ -1,0 +1,27 @@
+meta {
+  name: 건양대병원 메시지
+  type: http
+  seq: 12
+}
+
+post {
+  url: http://dis.atk.kr/api/v1/kyuh/update_waiting_list
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "type": "desk_message",
+      "zone_id": "1",
+      "zone_name": "접수/수납/퇴원",
+      "desk_id": "1",
+      "desk_name": "안 내",
+      "desk_message_show": true,
+      "desk_message": "죄송합니다.<p class=\"x-small\">업무가 지연되고 있어 잠시만 기다려<br>주시면 바로 처리해 드리겠습니다.</p>"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

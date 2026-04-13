@@ -1,0 +1,24 @@
+meta {
+  name: 외래_전광판_Room_조회_운영
+  type: http
+  seq: 7
+}
+
+get {
+  url: https://vn7wp1edoc.apigw.ntruss.com/symc-prod-med-api/v1/xnm/elbd/room?comnGrpCd=CC120&comnDtlsCd=END
+  body: none
+  auth: inherit
+}
+
+params:query {
+  comnGrpCd: CC120
+  comnDtlsCd: END
+}
+
+headers {
+  x-ncp-apigw-api-key: ImI2jqWKHpO6XhwkAx5OntZg7DhG8Z1yuxQRsMcT
+}
+
+settings {
+  encodeUrl: true
+}

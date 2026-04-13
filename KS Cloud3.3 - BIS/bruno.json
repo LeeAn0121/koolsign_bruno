@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "KS Cloud3.3 - BIS",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

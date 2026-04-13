@@ -1,0 +1,23 @@
+meta {
+  name: 외래_전광판_메시지_조회_운영
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://vn7wp1edoc.apigw.ntruss.com/symc-prod-med-api/v1/xnm/elbd/mesg/mno?elbdNo=DEND000007
+  body: none
+  auth: inherit
+}
+
+params:query {
+  elbdNo: DEND000007
+}
+
+headers {
+  x-ncp-apigw-api-key: ImI2jqWKHpO6XhwkAx5OntZg7DhG8Z1yuxQRsMcT
+}
+
+settings {
+  encodeUrl: true
+}

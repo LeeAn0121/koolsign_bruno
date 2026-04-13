@@ -1,0 +1,24 @@
+meta {
+  name: 수술실_전광판_조회_테스트
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://91wtlf2ty8.apigw.ntruss.com/symc-test-med-api/v1/mnz/mboard-oplist?oprtYmd=20231013&opplDvsnCd=M
+  body: none
+  auth: inherit
+}
+
+params:query {
+  oprtYmd: 20231013
+  opplDvsnCd: M
+}
+
+headers {
+  x-ncp-apigw-api-key: ANOPUoAu4PtCNdsClRyCY6F7rBI4CAebouWRKpIo
+}
+
+settings {
+  encodeUrl: true
+}

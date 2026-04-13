@@ -1,0 +1,25 @@
+meta {
+  name: 외래_전광판_대기환자_조회_테스트
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://91wtlf2ty8.apigw.ntruss.com/symc-test-med-api/v1/xnm/elbd/mno2?apntYmd=20231010&elbdNo=DGS0000001&ampmDvsnCd=A
+  body: none
+  auth: inherit
+}
+
+params:query {
+  apntYmd: 20231010
+  elbdNo: DGS0000001
+  ampmDvsnCd: A
+}
+
+headers {
+  x-ncp-apigw-api-key: ANOPUoAu4PtCNdsClRyCY6F7rBI4CAebouWRKpIo
+}
+
+settings {
+  encodeUrl: true
+}

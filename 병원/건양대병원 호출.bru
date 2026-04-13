@@ -1,0 +1,27 @@
+meta {
+  name: 건양대병원 호출
+  type: http
+  seq: 11
+}
+
+post {
+  url: http://172.16.52.90/api/v1/kyuh/update_waiting_list
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "type": "desk_issue",
+      "zone_id": "5",
+      "zone_name": "접수/수납/퇴원",
+      "desk_id": "1",
+      "desk_name": "접수/수납/퇴원",
+      "desk_issue_number": 545,
+      "desk_issue_name": "김민수"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

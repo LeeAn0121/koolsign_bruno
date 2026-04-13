@@ -1,0 +1,27 @@
+meta {
+  name: S&K병원 호출_TEST
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://172.16.68.38/snk/update_waiting_list
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "type": "desk_issue",
+      "zone_id": "1",
+      "zone_name": "접수·수납",
+      "desk_id": "2",
+      "desk_name": "접수·수납",
+      "desk_issue_number": "1",
+      "desk_issue_name": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}

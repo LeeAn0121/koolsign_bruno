@@ -1,0 +1,22 @@
+meta {
+  name: 데이터 암호화
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://121.135.203.113:8085/MediCare/NGTApi/AgentByToken
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "svrm": "neQXtaeRRZ0RtN5479aI2A==",
+      "param": "ZHd1B00/4rMsujatwGXU7VnUJj47urFQOaJyZ8pEsSxVQZlTPzG44xZ0PiPInCrDcAKk8f7zZEniH5U6Vn2W2VAujhbg+ruknnVG9MEzTURSGE74vx6WQK9dUD4t3qfhoLAbsgJexCbqPdwR1zrLpE8o8CJqImCYC5Sp6MwKSgb9uI2DpwPbFgzP+C0vCQ+zf02p1hlXYN2aWfy4Z1F4UA=="
+  }
+}
+
+settings {
+  encodeUrl: true
+}

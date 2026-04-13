@@ -1,0 +1,27 @@
+meta {
+  name: S&K병원 호출_Real
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://112.220.68.242/snk/update_waiting_list
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "type": "desk_issue",
+      "zone_id": "1",
+      "zone_name": "접수·수납",
+      "desk_id": "1",
+      "desk_name": "접수·수납",
+      "desk_issue_number": "1",
+      "desk_issue_name": ""
+  }
+}
+
+settings {
+  encodeUrl: true
+}
