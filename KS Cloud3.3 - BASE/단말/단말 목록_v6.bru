@@ -1,0 +1,30 @@
+meta {
+  name: 단말 목록_v6
+  type: http
+  seq: 23
+}
+
+post {
+  url: {{base_external_URL}}/restapi/stb_list_v6
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: cH1oV3dInikysSqAX4EG-KhdmlSFQgFfQTOwVWCmDJ4,
+}
+
+body:json {
+  {
+    "mem_id": "koolsign_admin",
+    "limit" : 10,
+    "page" : 1,
+    "stb_group" : "",
+    "stb_sn": "KSU24200135"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
